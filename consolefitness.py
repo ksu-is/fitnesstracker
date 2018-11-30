@@ -7,13 +7,18 @@ needs to have login to protect the student data
 import statistics as s
 
 #add constants next
-admins = {'Faculty1':'abc123','Faculty2':'ABC123'}
+admins = {'jasmine':'abc123','david':'ABC123'}
 
 students = {'Alex':[87,88,98],
             'Sally':[88,67,93],
             'Nboke':[90,88,78]}
-
+food = {'chicken':[90, 0, 60, 100, 0, 22]}
 #now define functions
+def viewnutrition():
+    print("hi")
+    for foods in food:
+        calories = foods[food,0]
+    print(str(calories))
 def enterGrades():
     nameToEnter = input('Student name: ')
     gradeToEnter = input('Grade: ')
@@ -50,6 +55,7 @@ def main():
     [2] - Remove Student
     [3] - Student Averages
     [4] - Exit
+    [5] - View Nutrition Info
     """)
 
     action = input('What would you like to do? (Enter a number) ')
@@ -66,6 +72,8 @@ def main():
     elif action == '4':
         #print('4 selected')
         exit()
+    elif action == '5':
+        viewnutrition()
     else:
         print('Valid option not selected.') #need to cause it to reprompt
 
