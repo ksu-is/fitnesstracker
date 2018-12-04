@@ -5,7 +5,7 @@
 - [x] create flow chart model of initial idea process
 - [x] find github code to support ideas
 - [x] research multiple frame opening in one tkinter window
-- [ ] research datbase view inside of tkinter frame
+- [x] research datbase view inside of tkinter frame
 - [ ] perform mathematical equations on db from tkinter???
 - [ ] create readme documentation for other users to use this application
 - [ ] finsh ppt presentation

@@ -5,18 +5,18 @@ import datetime
 window = Tk()
 window.title("Compound Tracker") 
 window.geometry('800x600+0+0')
-header = Label(window, text="Compound Tracker for Weightlifting", font=("arial",30,"bold"), fg="steelblue").pack()
+header = Label(window, text="Compound Tracker for Weightlifting", font=("Courier",30,"bold"), fg="steelblue").pack()
 
 con = sq.connect('Gym.db') #dB browser for sqlite needed
 c = con.cursor() #SQLite command, to connect to db so 'execute' method can be called
 
 
-L1 = Label(window, text = "Compound Lift", font=("arial", 18)).place(x=10,y=100)
-L2 = Label(window, text = "Day (dd)", font=("arial",18)).place(x=10,y=150)
-L3 = Label(window, text = "Month (mm)", font=("arial",18)).place(x=10,y=200)
-L4 = Label(window, text = "Year (yyyy)", font=("arial",18)).place(x=10,y=250)
-L5 = Label(window, text = "Max Weight (KG)", font=("arial",18)).place(x=10,y=300)
-L6 = Label(window, text = "Reps", font=("arial",18)).place(x=10,y=350)
+L1 = Label(window, text = "Meal", font=("arial", 18)).place(x=10,y=100)
+L2 = Label(window, text = "Brand Name", font=("arial",18)).place(x=10,y=150)
+L3 = Label(window, text = "Item Name", font=("arial",18)).place(x=10,y=200)
+L4 = Label(window, text = "Calories", font=("arial",18)).place(x=10,y=250)
+L5 = Label(window, text = "Protein (g)", font=("arial",18)).place(x=10,y=300)
+L6 = Label(window, text = "Total Carbohydrates (g)", font=("arial",18)).place(x=10,y=350)
 
 #Create variables for each list
 comp = StringVar(window)#For 1st dd
@@ -32,7 +32,7 @@ weight = StringVar(window)
 reps = StringVar(window)
 
 #Dictionary for drop down list
-compound = {'Bench', 'Squat', 'Deadlift','OVH'}
+compound = {'Breakfast', 'Lunch', 'Dinner','Snack'}
 
 compd = OptionMenu(window, comp, *compound) #For 1st drop down list 
 compd.place(x=220,y=105)
