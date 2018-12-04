@@ -7,6 +7,8 @@
 - [x] research multiple frame opening in one tkinter window
 - [ ] research datbase view inside of tkinter frame
 - [ ] perform mathematical equations on db from tkinter???
+- [ ] create readme documentation for other users to use this application
+- [ ] finsh ppt presentation
 - [ ] try to implement exericise tracking
 - [ ] create user specific greeting
 - [ ] research flsk for online implementation
