@@ -129,12 +129,9 @@ class PageTwo(tk.Frame):
                 print(row) # it print all records in the database
                 dtree.insert("", tk.END, values=row)
             
-            c.execute("CREATE TABLE IF NOT EXISTS TOTALS (Calories INTEGER, TotalFat INTEGER, Protein INTEGER, TotalCarbohydrates INTEGER, DietaryFiber INTEGER, Sugar INTEGER, Sodium INTEGER)")
-            c.execute("INSERT INTO TOTALS (Calories, TotalFat, Protein, TotalCarbohydrates, DietaryFiber, Sugar, Sodium) SELECT sum(calories), sum(totalfat), sum(protein), sum(totalcarbohydrates), sum(dietaryfiber), sum(sugar), sum(sodium) FROM Breakfast ")
-
-           # c.execute("SELECT SUM(calories) FROM Breakfast , SELECT SUM(calories) FROM Dinner")
-            #results = list(c)
-            #print(results)
+            find_calories = ("SELECT SUM(calories), SUM(totalfat),SUM(calories)+ SUM(totalfat) as 'Total' FROM Breakfast")
+            c.execute(find_calories)
+            print(c.fetchone()[0])
 
             conn.close()
 
