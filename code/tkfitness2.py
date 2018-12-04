@@ -50,10 +50,8 @@ class StartPage(tk.Frame):
         dialog_frame = tk.Frame(self)
         dialog_frame.pack(padx=300, pady=15, anchor='w')
 
-        tk.Label(dialog_frame, text="Username:").grid(row=0, column=0, sticky='w',)
-        self.name = tk.Entry(dialog_frame, background='grey', width=24)
-        self.name.grid(row=0, column=1, sticky='w')
-        self.name.focus_set()
+        tk.Label(dialog_frame, text="Username:")
+        self.name = tk.Entry(self, background='black', width=24).pack()
 
         button1 = tk.Button(self, text='Login', command=lambda: controller.show_frame("PageOne"))
         button1.pack()
@@ -99,7 +97,7 @@ class PageTwo(tk.Frame):
         tk.Frame.__init__(self, parent)
         self.controller = controller
 
-        label = tk.Label(self, text="View Your Daily Nutrition Info", font=controller.title_font)        
+        label = tk.Label(self, text=" - View Your Daily Nutrition Info -", font=controller.title_font)        
         label.pack(side="top", fill="x", pady=10)
 
         
@@ -122,12 +120,23 @@ class PageTwo(tk.Frame):
                 print(row) # it print all records in the database
                 bftree.insert("", tk.END, values=row)
 
+            c.execute("SELECT * FROM Lunch")
+            rows = c.fetchall()
+            for row in rows:
+                print(row) # it print all records in the database
+                ltree.insert("", tk.END, values=row)
 
             c.execute("SELECT * from Dinner")
             rows = c.fetchall()
             for row in rows:
                 print(row) # it print all records in the database
                 dtree.insert("", tk.END, values=row)
+            
+            c.execute("SELECT * FROM Snack")
+            rows = c.fetchall()
+            for row in rows:
+                print(row) # it print all records in the database
+                stree.insert("", tk.END, values=row)
             
             find_calories = ("SELECT SUM(calories), SUM(totalfat),SUM(calories)+ SUM(totalfat) as 'Total' FROM Breakfast")
             c.execute(find_calories)
@@ -214,7 +223,7 @@ class PageThree(tk.Frame):
         L2 = tk.Label(self, text = "Brand Name", font=controller.title_font).place(x=10,y=150)
         L3 = tk.Label(self, text = "Item Name", font=controller.title_font).place(x=10,y=200)
         L4 = tk.Label(self, text = "Calories", font=controller.title_font).place(x=10,y=250)
-        L5 = tk.Label(self, text = "Total Fat", font=controller.title_font).place(x=10,y=300)
+        L5 = tk.Label(self, text = "Total Fat (g)", font=controller.title_font).place(x=10,y=300)
         L6 = tk.Label(self, text = "Protein (g)", font=controller.title_font).place(x=10,y=350)
         L7 = tk.Label(self, text = "Total Carbohydrates (g)", font=controller.title_font).place(x=10,y=400)
         L8 = tk.Label(self, text = "Dietary Fiber (g)", font=controller.title_font).place(x=10,y=450)
@@ -302,7 +311,7 @@ class PageThree(tk.Frame):
             sugar.set('')
             sodium.set('')
 
-        self.bind('<Return>', func=post)
+        
         button_1 = tk.Button(self,text="Submit", command=post)
         button_1.place(x=400,y=650)
 
