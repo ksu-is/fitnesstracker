@@ -1,7 +1,7 @@
 import tkinter as tk
 
 
-class ListApp(tk.Frame):
+class PageOne(tk.Frame):
     def __init__(self, master):
         tk.Frame.__init__(self, master)
         self.pack()
@@ -25,5 +25,5 @@ class ListApp(tk.Frame):
 
 if __name__ == '__main__':
     root = tk.Tk()
-    app = ListApp(root)
+    app = PageOne(root)
     app.mainloop()
