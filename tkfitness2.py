@@ -94,36 +94,12 @@ class PageTwo(tk.Frame):
         label = tk.Label(self, text="View Your Daily Nutrition Info", font=controller.title_font)        
         label.pack(side="top", fill="x", pady=10)
 
-        self.CreateUI()
-        self.LoadTable()
-        parent.grid_rowconfigure(0, weight = 1)
-        parent.grid_columnconfigure(0, weight = 1)
+
 
         button = tk.Button(self, text="Go back to Menu",
                            command=lambda: controller.show_frame("PageOne"))
         button.pack(pady=100)
 
-    def CreateUI(self):
-        tv = Treeview(self)
-        tv['columns'] = ('calories', 'fat', 'carbs')
-        tv.heading("#0", text='Food Item', anchor='w')
-        tv.column("#0", anchor="w")
-
-        tv.heading('calories', text='Calories')
-        tv.column('calories', anchor='center', width=100)
-
-        tv.heading('fat', text='Total Fat')
-        tv.column('fat', anchor='center', width=100)
-
-        tv.heading('carbs', text='Total Carbohydrates')
-        tv.column('carbs', anchor='center', width=100)
-        self.treeview = tv
-        self.grid_rowconfigure(0, weight = 1)
-        self.grid_columnconfigure(0, weight = 1)
-
-    def LoadTable(self):
-        self.treeview.insert('', 'end', text="First", values=('10:00',
-                             '10:10', 'Ok'))
 
 class PageThree(tk.Frame):
 
