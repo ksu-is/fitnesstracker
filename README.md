@@ -1,2 +1,3 @@
-# workoutmanager
-workout manager
+
+# __*workoutmanager*__
+# Running The App
